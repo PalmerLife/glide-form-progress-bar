@@ -2,7 +2,7 @@
   {
     "kind": "column",
     "name": "Advanced Progress Bar",
-    "description": "Generates an HTML structure for a progress bar with customizable steps, current stage, completed stages, and primary color.",
+    "description": "Generates a customizable progress bar with steps, current stage, completed stages, primary color, and optional completed stage icon.",
     "author": "Your Name <your.email@example.com>",
     "params": [
       {
@@ -28,6 +28,12 @@
         "displayName": "Completed Stages",
         "type": "string",
         "description": "Comma-separated list of completed stage indices, e.g., '1,3'."
+      },
+      {
+        "name": "completedIcon",
+        "displayName": "Completed Stage Icon",
+        "type": "string",
+        "description": "Custom icon or character for completed stages (e.g., a checkmark or emoji). Defaults to Unicode Heavy Check Mark (✔)."
       }
     ],
     "result": {
