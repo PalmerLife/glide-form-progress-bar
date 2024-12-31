@@ -1,9 +1,10 @@
-window.function = function(steps, currentStep, primaryColor, completedStages) {
+window.function = function(steps, currentStep, primaryColor, completedStages, completedIcon) {
   // Parse inputs
   const stepsArray = (steps.value || "").split(",").map(step => step.trim());
   const currentStepIndex = Math.max(0, (currentStep.value || 1) - 1); // Ensure index is non-negative
   const color = primaryColor.value || "#5C9D5B"; // Default to green if primary color is not provided
   const completedStagesArray = (completedStages.value || "").split(",").map(num => parseInt(num.trim(), 10)); // Parse completed stages
+  const checkmarkIcon = (completedIcon.value || "\u2714").trim(); // Default to Unicode Heavy Check Mark
 
   // Define fallback colors
   const inactiveBackgroundColor = "#1F1F1F";
@@ -27,10 +28,10 @@ window.function = function(steps, currentStep, primaryColor, completedStages) {
       if (isCompleted) {
         circleBackgroundColor = color;
         circleBorderColor = color;
-        circleContent = "✔";
+        circleContent = checkmarkIcon; // Use provided or default checkmark icon
       } else if (isBeforeCurrent) {
         circleBackgroundColor = inactiveBackgroundColor;
-        circleBorderColor = color; // Updated to set the border color to the primary color for stages less than currentStage but not completed
+        circleBorderColor = color; // Border color for stages less than current but not completed
       }
       if (isCurrent) {
         circleBorderColor = color;
